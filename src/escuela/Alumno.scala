@@ -33,4 +33,21 @@ class Alumno(nombre: String, legajo: Int, cursadas: List[Cursada]) {
 	  return hash
 	  
 	}
+	
+	def notaMasAlta(x: Int): Int = {
+	  
+	  var acu = 0
+	  
+	  for(i <- 10 to 1 by -1) {
+	    
+	    if((cursadas.filter(_.getNota == i).length + acu) >= x) {
+	    	return i
+	    }
+	    else {
+	      acu += cursadas.filter(_.getNota == i).length
+	    }
+	  }
+	  
+	  return 0
+	}
 }
