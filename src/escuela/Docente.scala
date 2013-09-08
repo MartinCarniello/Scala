@@ -1,5 +1,5 @@
 package escuela
 
-class Docente {
+class Docente extends Integrante{
 
 }

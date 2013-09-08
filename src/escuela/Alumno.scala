@@ -2,7 +2,7 @@ package escuela
 
 import scala.collection.mutable.HashMap
 
-class Alumno(nombre: String, legajo: Int, cursadas: List[Cursada]) {
+class Alumno(nombre: String, legajo: Int, cursadas: List[Cursada]) extends Integrante{
 
 	def notasSinAplazo: List[Int] = { cursadas.filter(_.getNota > 3).map(_.getNota) }
 	
