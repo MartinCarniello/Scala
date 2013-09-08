@@ -1,0 +1,5 @@
+package escuela
+
+class Docente {
+
+}
