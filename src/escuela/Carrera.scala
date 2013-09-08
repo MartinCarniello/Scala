@@ -1,5 +1,7 @@
 package escuela
 
+import scala.collection.mutable.HashMap
+
 class Carrera(alumnos: List[Alumno]) {
 	
 	def promediosSinAplazos: List[Int] = { alumnos.map(_.promedioNotasSinAplazo) }
@@ -12,7 +14,7 @@ class Carrera(alumnos: List[Alumno]) {
 	
 	def porcentajeDeCursadasAprobadas: List[Int] = { alumnos.map(_.porcentajeDeCursadasAprobadas) }
 	
-	def tablaDeNotas : List[]
+	def tablaDeNotas: List[HashMap[Int, Int]] = { alumnos.map(_.tablaDeNotas) }
 }
 
 object Ejemplo {
@@ -32,6 +34,6 @@ object Ejemplo {
 	  	
 	  	var carrera: Carrera = new Carrera(alumnos)
 	  	
-	  	println(carrera.promediosSinAplazos)
+	  	println(carrera.porcentajeDeCursadasAprobadas)
 	}
 }
