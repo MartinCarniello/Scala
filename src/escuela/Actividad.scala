@@ -1,6 +1,6 @@
 package escuela
 
-abstract class Actividad (aprobada: Boolean, nombre: String, 
-	financiamiento: Int, grupoDeInvestigacion: GrupoDeInvestigacion){
+abstract class Actividad (var aprobada: Boolean, var nombre: String, 
+	var financiamiento: Int){
   
 }
