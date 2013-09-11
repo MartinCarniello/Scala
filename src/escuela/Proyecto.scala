@@ -1,8 +1,8 @@
 package escuela
 
-class Proyecto(aprobada: Boolean, nombre: String,
-			financiamiento: Int, grupoDeInvestigacion: GrupoDeInvestigacion,
+case class Proyecto(apr: Boolean, nom: String,
+			financ: Int, grupoDeInvestigacion: GrupoDeInvestigacion,
 			resultado: Resultado, bitacora: List[Experimento]) extends 
-			Actividad(aprobada, nombre, financiamiento, grupoDeInvestigacion) {
+			Actividad(apr, nom, financ, grupoDeInvestigacion) {
 
 }

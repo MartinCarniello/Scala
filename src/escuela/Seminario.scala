@@ -1,7 +1,7 @@
 package escuela
 
-class Seminario(aprobada: Boolean, nombre: String, financiamiento: Int, 
+case class Seminario(apr: Boolean, nom: String, financ: Int, 
     grupoDeInvestigacion: GrupoDeInvestigacion, sesiones: List[Sesion]) 
-    extends Actividad(aprobada, nombre, financiamiento, grupoDeInvestigacion) {
+    extends Actividad(apr, nom, financ, grupoDeInvestigacion) {
 
 }

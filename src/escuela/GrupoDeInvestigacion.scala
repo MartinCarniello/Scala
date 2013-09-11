@@ -15,4 +15,6 @@ class GrupoDeInvestigacion(grupoDeInvestigacion: List[Integrante], actividades: 
 	  return hash 
 	  
 	}
+	
+	def articulosPublicados: List[Resultado] = { actividades.map( _ match { case p: Proyecto => p.resultado } ) }
 }

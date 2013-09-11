@@ -1,8 +1,9 @@
 package escuela
 
-import java.util.Calendar
+import java.util.GregorianCalendar
 
-class Experimento(fecha: Calendar, horaInicio: Calendar, horaFin: Calendar,
+
+class Experimento(fecha: GregorianCalendar, horaInicio: GregorianCalendar, horaFin: GregorianCalendar,
     experimento: String) {
 
 }

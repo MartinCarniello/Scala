@@ -1,7 +1,8 @@
 package escuela
 
-import java.util.Calendar
+import java.util.GregorianCalendar
 
-class Sesion(fecha: Calendar, horaInicio: Calendar, horaFin: Calendar){
+
+class Sesion(fecha: GregorianCalendar, horaInicio: GregorianCalendar, horaFin: GregorianCalendar){
 
 }

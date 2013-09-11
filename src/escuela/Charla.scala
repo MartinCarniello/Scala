@@ -1,10 +1,11 @@
 package escuela
 
-import java.util.Calendar
+import java.util.GregorianCalendar
 
-class Charla(aprobada: Boolean, nombre: String, financiamiento: Int, 
+
+case class Charla(apr: Boolean, nom: String, financ: Int, 
      grupoDeInvestigacion: GrupoDeInvestigacion, cantidadDePublico: Int, 
-     dia: Calendar, horaInicio: Calendar, horaFin: Calendar) extends 
-     Actividad(aprobada, nombre, financiamiento, grupoDeInvestigacion){
+     dia: GregorianCalendar, horaInicio: GregorianCalendar, horaFin: GregorianCalendar) extends 
+     Actividad(apr, nom, financ, grupoDeInvestigacion){
 
 }
