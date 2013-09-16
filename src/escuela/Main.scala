@@ -45,6 +45,8 @@ object Main {
 	  var seminario: Seminario = new Seminario(true, "seminario", 800, List(sesion1, sesion2))
 	  
 	  var grupo: GrupoDeInvestigacion = new GrupoDeInvestigacion(List(alumno, alumno2), List(proyecto, charla, seminario))
+	  
+	  alumno.ingresarAGrupo(grupo)
 	  	
 	  var alumnos: List[Alumno] = List(alumno, alumno2)
 	  	
@@ -52,8 +54,7 @@ object Main {
 	  
 	  //println(grupo.actividadesNoAprobadas)
 	  //println(grupo.articulosPublicados)
-	  println(alumno.getAgenda)
-	  println(alumno2.getAgenda)
+	  //println(alumno.getAgenda.map(_.fecha))
 	  //println(carrera.promediosSinAplazos)
 	  //println(carrera.promediosConAplazos)
 	  //println(carrera.cantidadDeCursadasAprobadas)

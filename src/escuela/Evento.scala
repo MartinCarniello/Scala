@@ -1,4 +1,4 @@
 package escuela
 
-class Evento(fecha: Int, horaInicio: Int, horaFin: Int, info: String){ 
+class Evento(val fecha: Int, val horaInicio: Int, val horaFin: Int, val info: String){ 
 }
