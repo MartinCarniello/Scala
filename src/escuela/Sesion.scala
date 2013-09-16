@@ -1,8 +1,7 @@
 package escuela
 
-import java.util.GregorianCalendar
-
-
-class Sesion(fecha: GregorianCalendar, horaInicio: GregorianCalendar, horaFin: GregorianCalendar){
+class Sesion(fecha: Int, horaInicio: Int, horaFin: Int){
+  
+  def getEvento(nombre : String) : Evento = { new Evento(fecha, horaInicio, horaFin, nombre) }
 
 }

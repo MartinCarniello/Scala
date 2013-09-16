@@ -1,11 +1,9 @@
 package escuela
 
-import java.util.GregorianCalendar
-
-
 case class Charla(apr: Boolean, nom: String, financ: Int, 
-     grupoDeInvestigacion: GrupoDeInvestigacion, cantidadDePublico: Int, 
-     dia: GregorianCalendar, horaInicio: GregorianCalendar, horaFin: GregorianCalendar) extends 
-     Actividad(apr, nom, financ, grupoDeInvestigacion){
+     cantidadDePublico: Int, dia: Int, horaInicio: Int, horaFin: Int) 
+     extends Actividad(apr, nom, financ){
+  
+  override def getEventos : List[Evento] = {List(new Evento(this.dia, this.horaInicio, this.horaFin, this.nom))} 
 
 }

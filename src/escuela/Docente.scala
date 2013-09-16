@@ -1,6 +1,8 @@
 package escuela
 
-class Docente(nombre: String, legajo: Int, gruposDeInvestigacion: List[GrupoDeInvestigacion]) 
-				extends Integrante(nombre, legajo, gruposDeInvestigacion){
+import scala.collection.mutable.Set
+
+class Docente(nombre: String, legajo: Int) 
+				extends Integrante(nombre, legajo, Set()){
 
 }

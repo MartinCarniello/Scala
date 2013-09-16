@@ -1,8 +1,5 @@
 package escuela
 
-import java.util.GregorianCalendar
-
-
-class Resultado(resultado: String, fecha: GregorianCalendar) {
+class Resultado(val resultado: String, fecha: Int) {
 
 }

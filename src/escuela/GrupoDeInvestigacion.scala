@@ -2,19 +2,15 @@ package escuela
 
 import scala.collection.mutable.HashMap
 
-class GrupoDeInvestigacion(grupoDeInvestigacion: List[Integrante], actividades: List[Actividad]) {
+class GrupoDeInvestigacion(grupoDeInvestigacion: List[Integrante],val actividades: List[Actividad]) {
 
-	def actividadesNoAprobadas: HashMap[String, Int] = { 
-	
-	  val hash = new HashMap[String, Int]()
-	  
-	  for(a <- actividades.filter(_.aprobada)) {
-		  hash += (a.nombre -> a.financiamiento)
-	  }
-	  
-	  return hash 
-	  
+	def actividadesNoAprobadas: Map[String, Int] = { 
+	  actividades.filterNot(_.aprobada).map(act => (act.nombre, act.financiamiento)).toMap
 	}
 	
-	def articulosPublicados: List[Resultado] = { actividades.map( _ match { case p: Proyecto => p.resultado } ) }
+	def articulosPublicados: List[Resultado] = { 
+	  actividades.filter( _ match { case p: Proyecto => true case _ => false } ).map(
+	  _.asInstanceOf[Proyecto].resultados.filter(_.resultado.matches("articulo"))).foldLeft(List(): List[Resultado])(_ ++ _)
+	}
+	
 }

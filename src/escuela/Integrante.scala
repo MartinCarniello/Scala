@@ -1,13 +1,12 @@
 package escuela
 
-abstract class Integrante(nombre: String, legajo: Int,
-							gruposDeInvestigacion: List[GrupoDeInvestigacion]) {
+import scala.collection.mutable.Set
+
+abstract class Integrante(val nombre: String, legajo: Int, val gruposDeInvestigacion: Set[GrupoDeInvestigacion]) {
   
-  def agendaDeEventos: List[Agenda] = {
-	  
-		gruposDeInvestigacion.foreach(
-		
-			
-		)
-	}
+  def ingresarAGrupo(grupo: GrupoDeInvestigacion) = { this.gruposDeInvestigacion.add(grupo) }
+  
+  def getAgenda : List[Evento] = { this.gruposDeInvestigacion.map(_.actividades).foldLeft(
+		  			List(): List[Actividad])(_ ++ _).map(_.getEventos).foldLeft(List(): List[Evento])(_ ++ _) }
+  
 }
