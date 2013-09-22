@@ -10,8 +10,8 @@ abstract class Integrante {
   
   def ingresarAGrupo(grupo: GrupoDeInvestigacion) = { gruposDeInvestigacion.add(grupo) }
   
-  def getAgenda : List[Evento] = { gruposDeInvestigacion.map(_.actividades).foldLeft(
-		  			List(): List[Actividad])(_ ++ _).flatMap(_.eventos)	  			
+  def getAgenda : List[Evento] = { 
+    gruposDeInvestigacion.map(_.actividades).foldLeft(List(): List[Actividad])(_ ++ _).flatMap(_.eventos)	  			
   }
 }
 
