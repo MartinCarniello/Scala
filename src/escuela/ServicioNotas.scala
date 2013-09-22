@@ -32,3 +32,22 @@ trait ServicioNotas {
 	}
 	
 }
+
+trait ServicioNotasPorAnio extends ServicioNotas {
+  
+	def corteAnual(anio: Int): Integrante
+	
+	def promedioNotasSinAplazo(anio: Int): Float = { corteAnual(anio).promedioNotasSinAplazo }
+	
+	def promedioNotasConAplazo(anio: Int): Float = { corteAnual(anio).promedioNotasConAplazo }
+	
+	def cantidadDeCursadasAprobadas(anio: Int): Int = { corteAnual(anio).cantidadDeCursadasAprobadas }
+	
+	def cantidadDeCursadasAbandonadas(anio: Int): Int = { corteAnual(anio).cantidadDeCursadasAbandonadas }
+	
+	def porcentajeDeCursadasAprobadas(anio: Int): Int = { corteAnual(anio).porcentajeDeCursadasAprobadas }
+	
+	def tablaDeNotas(anio: Int): Map[Int, Int] = { corteAnual(anio).tablaDeNotas }
+	
+	def notaMasAlta(anio: Int, x: Int): Int = { corteAnual(anio).notaMasAlta(x) }
+}
