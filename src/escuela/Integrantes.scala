@@ -1,8 +1,9 @@
 package escuela
 
 import scala.collection.mutable.Set
+import scala.collection.mutable.Buffer
 
-abstract class Integrante extends ServicioNotasPorAnio {
+abstract class Integrante extends ServicioNotas {
   val nombre: String
   val legajo: Int
   def cursadas: List[Cursada]
@@ -14,13 +15,16 @@ abstract class Integrante extends ServicioNotasPorAnio {
     gruposDeInvestigacion.map(_.actividades).foldLeft(List(): List[Actividad])(_ ++ _).flatMap(_.eventos)	  			
   }
   
-  def corteAnual(anio: Int): Integrante = { 
-	  this match { 
-      	case a: Alumno => Alumno(nombre, legajo, cursadas.filter(_.anio == anio))
-      	case d: Docente => Docente(nombre, legajo, cursadas.filter(_.anio == anio))
-      }
+  def corteAnual(anio: Int): CorteAnual = {
+	  CorteAnual(cursadas.filter(_.anio == anio))
   }
 }
 
-case class Alumno(nombre: String, legajo: Int, cursadas: List[Cursada] = List[Cursada]()) extends Integrante
-case class Docente(nombre: String, legajo: Int, cursadas: List[Cursada] = List[Cursada]()) extends Integrante
+case class Alumno(nombre: String, legajo: Int, var cursadas: List[Cursada] = List[Cursada]()) extends Integrante {
+	def setCursadas(cs: List[Cursada]) = { cursadas = cs }
+}
+case class Docente(nombre: String, legajo: Int, var cursadas: List[Cursada] = List[Cursada]()) extends Integrante {
+	def setCursadas(cs: List[Cursada]) = { cursadas = cs }
+}
+
+case class CorteAnual(cursadas: List[Cursada]) extends ServicioNotas

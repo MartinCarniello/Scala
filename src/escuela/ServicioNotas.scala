@@ -4,13 +4,13 @@ trait ServicioNotas {
 
 	def cursadas: List[Cursada]
   
-	def notasSinAplazo: List[Int] = { cursadas.filter(_.nota > 3).map(_.nota) }
+	def notasSinAplazo: List[Double] = { cursadas.filter(_.nota > 3).map(_.nota) }
 	
-	def notasConAplazo: List[Int] = { cursadas.filter(_.terminada).map(_.nota) }
+	def notasConAplazo: List[Double] = { cursadas.filter(_.terminada).map(_.nota) }
 	
-	def promedioNotasSinAplazo: Float = { notasSinAplazo.sum / notasSinAplazo.length }
+	def promedioNotasSinAplazo: Double = { notasSinAplazo.sum / notasSinAplazo.length }
 	
-	def promedioNotasConAplazo: Float = { notasConAplazo.sum / notasConAplazo.length }
+	def promedioNotasConAplazo: Double = { notasConAplazo.sum / notasConAplazo.length }
 	
 	def cantidadDeCursadasAprobadas: Int = { cursadas.filter(_.aprobo).length }
 	
@@ -31,23 +31,4 @@ trait ServicioNotas {
 	  return 0
 	}
 	
-}
-
-trait ServicioNotasPorAnio extends ServicioNotas {
-  
-	def corteAnual(anio: Int): Integrante
-	
-	def promedioNotasSinAplazo(anio: Int): Float = { corteAnual(anio).promedioNotasSinAplazo }
-	
-	def promedioNotasConAplazo(anio: Int): Float = { corteAnual(anio).promedioNotasConAplazo }
-	
-	def cantidadDeCursadasAprobadas(anio: Int): Int = { corteAnual(anio).cantidadDeCursadasAprobadas }
-	
-	def cantidadDeCursadasAbandonadas(anio: Int): Int = { corteAnual(anio).cantidadDeCursadasAbandonadas }
-	
-	def porcentajeDeCursadasAprobadas(anio: Int): Int = { corteAnual(anio).porcentajeDeCursadasAprobadas }
-	
-	def tablaDeNotas(anio: Int): Map[Int, Int] = { corteAnual(anio).tablaDeNotas }
-	
-	def notaMasAlta(anio: Int, x: Int): Int = { corteAnual(anio).notaMasAlta(x) }
 }

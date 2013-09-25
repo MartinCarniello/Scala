@@ -16,13 +16,11 @@ case class Curso(alumnos: List[Alumno], requerimientos: List[String], id: Int) e
 	def cantidadDeIntegrantes: Int = { alumnos.size }  
 }
 
-case class Cursada(nombre: String, terminada: Boolean, nota: Int, alumno: Alumno, anio: Int, idCurso: Int) {
+case class Cursada(nombre: String, terminada: Boolean, nota: Double, alumno: Alumno, anio: Int, idCurso: Int) {
 	def aprobo: Boolean = nota match {
 	  	case x if x > 3 => true
 	  	case _ => false
 	}
 }
 
-case class Aula(capacidad: Int, recursos: List[String]){
-  
-}
+case class Aula(capacidad: Int, recursos: List[String])
